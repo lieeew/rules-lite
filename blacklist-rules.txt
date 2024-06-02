@@ -1,0 +1,6 @@
+payload:
+  - DOMAIN-SUFFIX,madou.club	  
+  - DOMAIN-SUFFIX,wnacg.org	  
+  - DOMAIN-SUFFIX,xhamster.com	  
+  - DOMAIN-SUFFIX,rou.video
+  - DOMAIN-SUFFIX,update.googleapis.com
