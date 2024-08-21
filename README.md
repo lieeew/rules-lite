@@ -18,9 +18,9 @@
 
 <p>
   <pre align="center">
-  https://cdn.jsdelivr.net/gh/zhanyeye/clash-rules-lite@release/proxy-rules.txt    
-  https://cdn.jsdelivr.net/gh/zhanyeye/clash-rules-lite@release/microsoft-rules.txt
-  https://cdn.jsdelivr.net/gh/zhanyeye/clash-rules-lite@release/blacklist-rules.txt</pre>
+  https://cdn.jsdelivr.net/gh/lieeew/clash-rules-lite@release/proxy-rules.txt    
+  https://cdn.jsdelivr.net/gh/lieeew/clash-rules-lite@release/microsoft-rules.txt
+  https://cdn.jsdelivr.net/gh/lieeew/clash-rules-lite@release/blacklist-rules.txt</pre>
 </p>
 
 ### 工具介绍
