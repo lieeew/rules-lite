@@ -1,4 +1,4 @@
-// Clash Verge 扩展脚本：Claude 组仅允许 REJECT 或指定的固定代理。
+// Clash Verge 扩展脚本：Claude 组支持 REJECT、节点选择和指定的固定代理。
 
 // 国内 DNS 服务器
 const domesticNameservers = [
@@ -55,91 +55,97 @@ const ruleProviderCommon = {
   "interval": 86400
 };
 
-// 规则集配置
+// 规则集配置：从自有仓库 release 分支下载。
 const ruleProviders = {
+  "custom-direct": {
+    ...ruleProviderCommon,
+    "behavior": "classical",
+    "url": "https://fastly.jsdelivr.net/gh/lieeew/rules-lite@release/direct-rules.txt",
+    "path": "./ruleset/lieeew/direct-rules.yaml"
+  },
   "reject": {
     ...ruleProviderCommon,
     "behavior": "domain",
-    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt",
-    "path": "./ruleset/loyalsoldier/reject.yaml"
+    "url": "https://fastly.jsdelivr.net/gh/lieeew/rules-lite@release/reject.txt",
+    "path": "./ruleset/lieeew/reject.yaml"
   },
   "icloud": {
     ...ruleProviderCommon,
     "behavior": "domain",
-    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt",
-    "path": "./ruleset/loyalsoldier/icloud.yaml"
+    "url": "https://fastly.jsdelivr.net/gh/lieeew/rules-lite@release/icloud.txt",
+    "path": "./ruleset/lieeew/icloud.yaml"
   },
   "apple": {
     ...ruleProviderCommon,
     "behavior": "domain",
-    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt",
-    "path": "./ruleset/loyalsoldier/apple.yaml"
+    "url": "https://fastly.jsdelivr.net/gh/lieeew/rules-lite@release/apple.txt",
+    "path": "./ruleset/lieeew/apple.yaml"
   },
   "google": {
     ...ruleProviderCommon,
     "behavior": "domain",
-    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt",
-    "path": "./ruleset/loyalsoldier/google.yaml"
+    "url": "https://fastly.jsdelivr.net/gh/lieeew/rules-lite@release/google.txt",
+    "path": "./ruleset/lieeew/google.yaml"
   },
   "proxy": {
     ...ruleProviderCommon,
     "behavior": "domain",
-    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt",
-    "path": "./ruleset/loyalsoldier/proxy.yaml"
+    "url": "https://fastly.jsdelivr.net/gh/lieeew/rules-lite@release/proxy.txt",
+    "path": "./ruleset/lieeew/proxy.yaml"
   },
   "direct": {
     ...ruleProviderCommon,
     "behavior": "domain",
-    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt",
-    "path": "./ruleset/loyalsoldier/direct.yaml"
+    "url": "https://fastly.jsdelivr.net/gh/lieeew/rules-lite@release/direct.txt",
+    "path": "./ruleset/lieeew/direct.yaml"
   },
   "private": {
     ...ruleProviderCommon,
     "behavior": "domain",
-    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt",
-    "path": "./ruleset/loyalsoldier/private.yaml"
+    "url": "https://fastly.jsdelivr.net/gh/lieeew/rules-lite@release/private.txt",
+    "path": "./ruleset/lieeew/private.yaml"
   },
   "gfw": {
     ...ruleProviderCommon,
     "behavior": "domain",
-    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt",
-    "path": "./ruleset/loyalsoldier/gfw.yaml"
+    "url": "https://fastly.jsdelivr.net/gh/lieeew/rules-lite@release/gfw.txt",
+    "path": "./ruleset/lieeew/gfw.yaml"
   },
   "tld-not-cn": {
     ...ruleProviderCommon,
     "behavior": "domain",
-    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt",
-    "path": "./ruleset/loyalsoldier/tld-not-cn.yaml"
+    "url": "https://fastly.jsdelivr.net/gh/lieeew/rules-lite@release/tld-not-cn.txt",
+    "path": "./ruleset/lieeew/tld-not-cn.yaml"
   },
   "telegramcidr": {
     ...ruleProviderCommon,
     "behavior": "ipcidr",
-    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt",
-    "path": "./ruleset/loyalsoldier/telegramcidr.yaml"
+    "url": "https://fastly.jsdelivr.net/gh/lieeew/rules-lite@release/telegramcidr.txt",
+    "path": "./ruleset/lieeew/telegramcidr.yaml"
   },
   "cncidr": {
     ...ruleProviderCommon,
     "behavior": "ipcidr",
-    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt",
-    "path": "./ruleset/loyalsoldier/cncidr.yaml"
+    "url": "https://fastly.jsdelivr.net/gh/lieeew/rules-lite@release/cncidr.txt",
+    "path": "./ruleset/lieeew/cncidr.yaml"
   },
   "lancidr": {
     ...ruleProviderCommon,
     "behavior": "ipcidr",
-    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt",
-    "path": "./ruleset/loyalsoldier/lancidr.yaml"
+    "url": "https://fastly.jsdelivr.net/gh/lieeew/rules-lite@release/lancidr.txt",
+    "path": "./ruleset/lieeew/lancidr.yaml"
   },
   "applications": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt",
-    "path": "./ruleset/loyalsoldier/applications.yaml"
+    "url": "https://fastly.jsdelivr.net/gh/lieeew/rules-lite@release/applications.txt",
+    "path": "./ruleset/lieeew/applications.yaml"
   },
   "openai": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml",
-    "path": "./ruleset/blackmatrix7/openai.yaml"
+    "url": "https://fastly.jsdelivr.net/gh/lieeew/rules-lite@release/OpenAI.yaml",
+    "path": "./ruleset/lieeew/openai.yaml"
   }
 };
 
@@ -167,10 +173,8 @@ const rules = [
   "DOMAIN-SUFFIX,xn--ngstr-lra8j.com,节点选择", // Google Play 下载服务
   "DOMAIN-SUFFIX,github.io,节点选择", // GitHub Pages
   "DOMAIN,v2rayse.com,节点选择", // V2rayse 节点工具
-  // 鱼皮产品
-  "DOMAIN-KEYWORD,codefather,全局直连",
-  "DOMAIN-KEYWORD,mianshiya,全局直连",
-  "DOMAIN-KEYWORD,codecopy,全局直连",
+  // 自定义直连规则
+  "RULE-SET,custom-direct,全局直连",
   // blackmatrix7 规则集
   "RULE-SET,openai,节点选择",
   // Loyalsoldier 规则集
@@ -227,13 +231,14 @@ function main(config) {
       ...groupBaseOption,
       "name": "Claude",
       "type": "select",
-      "proxies": ["REJECT"],
+      "proxies": ["REJECT", "节点选择"],
       "use": Object.keys(config["proxy-providers"] || {}),
       "include-all-proxies": true,
-      // 仅引入这个固定代理；节点不存在时，组内仅有 REJECT。
+      // 仅引入这个固定代理；节点不存在时，仍可选择 REJECT 或节点选择。
       "filter": "^f4675880-singbox_hysteria2$",
       "default-selected": "f4675880-singbox_hysteria2",
-      "empty-fallback": "REJECT"
+      "empty-fallback": "REJECT",
+      "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/claude.svg"
     },
     {
       ...groupBaseOption,
